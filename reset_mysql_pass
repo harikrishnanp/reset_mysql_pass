@@ -1,0 +1,25 @@
+#!/bin/bash
+
+echo  -n "Enter new MySQL root password: "
+read  NEW_PASSWORD
+echo  -n "Retype new MySQL root password: "
+read  CONFIRM_PASSWORD
+
+if [ "$NEW_PASSWORD" == "$CONFIRM_PASSWORD" ]; then
+    echo  -n "Resetting MySQL root password.....";
+    service mysql stop
+    killall -9 mysqld
+    mysqld_safe --skip-grant-tables  2>&1 &
+    sleep 5
+    mysql -u root -e 'UPDATE mysql.user SET Password=PASSWORD('$NEW_PASSWORD') WHERE User='root';FLUSH PRIVILEGES;'
+    service mysql stop
+    killall -9 mysqld
+    sleep 5
+    service mysql start
+    echo  -n "Password reset success";
+    echo  -n "";
+else
+    echo  -n "Sorry, passwords do not match";
+    echo  -n "";
+fi
+
