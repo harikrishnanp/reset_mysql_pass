@@ -1,5 +1,5 @@
 #!/bin/bash
-
+#Author = harikrishnan.vkm186@gmail.com
 echo  -n "Enter new MySQL root password: "
 read  NEW_PASSWORD
 echo  -n "Retype new MySQL root password: "
