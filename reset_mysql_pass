@@ -17,9 +17,9 @@ if [ "$NEW_PASSWORD" == "$CONFIRM_PASSWORD" ]; then
     sleep 5
     service mysql start
     echo  -n "Password reset success";
-    echo  -n "";
+    echo  -n " ";
 else
     echo  -n "Sorry, passwords do not match";
-    echo  -n "";
+    echo  -n " ";
 fi
 
