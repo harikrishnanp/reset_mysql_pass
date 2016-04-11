@@ -1,5 +1,5 @@
 # reset_mysql_pass
-Bash script for resetting mysql root password.
+Bash script to reset mysql root password.
 
 Run by
 
